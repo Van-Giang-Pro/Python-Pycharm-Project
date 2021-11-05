@@ -1,5 +1,7 @@
 import webbrowser
 from fpdf import FPDF
+from sympy.physics.units import amount
+
 
 class Bill:
     """
@@ -70,8 +72,8 @@ class PdfReport:
 
         # Open PDF
         webbrowser.open(self.filename)
-
-bill = Bill(amount=120, period='March 2021')
+amount = float(input('Please Enter Bill Amount : '))
+bill = Bill(amount=amount, period='March 2021')
 john = Flatmate(name='John', days_in_house=20)
 marry = Flatmate(name='Marry', days_in_house=25)
 print("John Has To Pay : ",john.pays(bill=bill, co_flatmate=marry)) # có thể ghi bill=bill hay để bill cũng được
